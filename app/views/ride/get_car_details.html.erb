@@ -1,0 +1,55 @@
+    <div id="main-wrapper">
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">Almost Done</h2>              
+            </div>
+          </div>
+         
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion -->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <h5>Car Details</h5>
+                <%= form_for(:car_deatils, :url=>{:action=>'save_car_details',:id=>@offer_id},:multipart=>true,:method=>'post') do |f|%>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <%=f.text_field :title , class: 'rq-form-control reverse',placeholder:'Title',required:''%>
+                      
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.number_field :seats,class: 'rq-form-control reverse',placeholder:'Seats',required:''%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.text_field :comfort,class: 'rq-form-control reverse',placeholder:'Comfort',required:''%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.file_field :image,class: 'rq-form-control reverse',placeholder:'Comfort',required:''%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.text_field :model,class: 'rq-form-control reverse',placeholder:'Model',required:''%>
+                    </div>                 
+                    
+                    <div class="col-md-3">
+                      <%= f.text_field :color,class: 'rq-form-control reverse',placeholder:'color',required:''%>
+                    </div>                                     
+
+                    <div class="col-md-12">
+                      <div class="register-button">
+                        <button type="submit" class="rq-btn rq-btn-primary border-radius">Register <i class="arrow_right"></i></button>
+                      </div>
+                    </div>
+                  </div> <!-- end of registration section -->
+               <%end%>
+
+              </div>
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+    </div> <!-- end #main-wrapper -->
+  

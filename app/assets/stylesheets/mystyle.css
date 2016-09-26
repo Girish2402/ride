@@ -1,0 +1,54 @@
+.forgotpass a{
+	color: #3cc;
+}
+
+#notice_wrapper{   
+	    position: absolute;
+    z-index: 999;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.73);
+    width: 100%;
+    font-size: 20px;
+}
+.profile_pic img{
+	height: 140px;
+	width:140px;
+}
+
+.profile_pic{
+	width: 17% !important;
+    top: -30px !important;
+
+}
+
+.compose-msg{
+        border: 2px solid;
+}
+
+.compose-msg .btn{
+    margin: 10px 16px !important;
+}
+
+.center{
+    text-align: center
+}
+
+.scroll{
+    height: 200px;
+    overflow:scroll;
+}
+
+.contact-img img{
+        height: 100px;
+    border-radius: 50%;
+    width: 100px;
+}
+
+
+.rq-price img{
+height: 200px;
+}
+
+.btn-price.fluid {
+    width: 160px !important;
+}

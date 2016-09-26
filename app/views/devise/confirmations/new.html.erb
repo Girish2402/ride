@@ -1,0 +1,49 @@
+<div id="main-wrapper">
+    <%= render :partial=>'ride/header'%>
+    <div class="rq-page-content">
+       <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="#">Home</a></li>
+                <li class="active">Resend confirmation</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single"> <!-- start of Forgot password form portion -->
+            <div class="container">
+              <h4>Resend confirmation instructions</h4>
+              <p class="subtitle">Enter Your Email-id we will send change password instruction via mail</p>
+              <div class="rq-login-form">
+               <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+                    <%= devise_error_messages! %>
+                   
+                    <div class="row">                      
+                      <div class="col-md-5">
+                        <%= f.email_field :email,class:'rq-form-control',placeholder:'Email-id',autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                      </div>
+                      <div class="col-md-2">
+                        <button type="submit" class="rq-btn rq-btn-primary fluid border-radius">Send<i class="arrow_right"></i></button>                        
+                      </div>
+                      <div class="col-md-12">
+                          <div class="remember-me">                         
+                            <span class="forgotpass">
+                              <br>
+                             <%= render "devise/shared/links" %>
+                            </span>
+                          </div>
+                      </div>
+                    </div>
+                <% end %>
+           
+              </div> <!-- end login div -->
+            </div>
+          </div> <!-- end of forgot password form portion -->
+       </div>
+    </div>
+</div> <!-- end #main-wrapper -->
+
+
+
+
+

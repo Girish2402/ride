@@ -1,0 +1,135 @@
+<div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">Edit My Profile</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="#">Home</a></li>
+                <li class="active">Edit</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion-->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <%= devise_error_messages! %>
+                    </div>
+                    <div class="col-md-4">
+                        NAME:
+                        <%= f.text_field :name, autofocus: true,class:'rq-form-control reverse', placeholder:'Name', required:''%>
+                    </div>      
+                    <div class="col-md-4">
+                      EMAIL
+                      <%= f.email_field :email, autofocus: true,class:'rq-form-control reverse',placeholder:'Email Address'%>
+                    </div>
+                    <div class="col-md-4">  
+                      Password (leave blank if you don't want to change it)  
+
+                      <%= f.password_field :password, autocomplete: "off",class:'rq-form-control reverse', placeholder:'Password'%>
+                      <% if @minimum_password_length %>
+                      <em>(password <%= @minimum_password_length %> characters minimum)</em>
+                      <% end %>
+
+                    </div>
+                    <div class="col-md-4">  
+                       Confirm Password                  
+                       <%= f.password_field :password_confirmation, autocomplete: "off",class:'rq-form-control reverse',placeholder:'Re - Password'%>
+                    </div>
+                    <div class="col-md-4">
+                      Current Password
+                      <%= f.password_field :current_password, autocomplete: "off",class:'rq-form-control reverse',placeholder:'Current Password'%>
+                    </div>
+                    <div class="col-md-4">                    
+                        Change Profile pic
+                        <%= f.file_field (:avatar) %>
+                    </div>
+                   
+                    <div class="col-md-12">
+                      <div class="register-button">
+                        <button type="submit" class="rq-btn rq-btn-primary border-radius">Register <i class="arrow_right"></i></button>
+
+                      </div>
+                    </div>                   
+                  </div> <!-- end of registration section -->
+                <% end %>
+                 <div class="col-md-12 forgotpass">   
+                   <h2 class="rq-title">Cancel my account</h2> 
+                    <p>Unhappy with our services? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                    <%= link_to "Back", :back %>
+                </div>
+
+              </div>
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+</div> <!-- end #main-wrapper -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+
+
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+ -->

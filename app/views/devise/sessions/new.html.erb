@@ -1,0 +1,95 @@
+
+    <div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">Register</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="#">Home</a></li>
+                <li class="active">Login</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single"> <!-- start of login form portion -->
+            <div class="container">
+              <h4>Login your account</h4>
+              <p class="subtitle">Login to your accounts to discover the great features in this template</p>
+              <div class="rq-login-form">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <%= f.email_field :email, autofocus: true,class:'rq-form-control',placeholder:'Your email' %>
+                    </div>
+                    <div class="col-md-5">
+                      <%= f.password_field :password, autocomplete: "off",class:'rq-form-control',placeholder:'Your password' %>
+                    </div>
+                    <div class="col-md-2">
+                      <button type="submit" class="rq-btn rq-btn-primary fluid border-radius">Login <i class="arrow_right"></i></button>
+                      
+                    </div>
+                    <div class="col-md-12">
+                      <div class="rq-checkbox">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="remember-me">
+                        <span class="rq-checkbox">
+                          <% if devise_mapping.rememberable? -%>
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                          <% end -%>
+                        </span>
+                        <span class="forgotpass">
+                          <br>
+                          <%= render "devise/shared/links" %>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <div class="social-login"> <!-- start social icon div -->
+                  <h5>or login with</h5>
+                  <ul class="social-page-nav">
+                    <li><a href="#" class="fb"><i class="social_facebook"></i></a></li>
+                    <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                    <li><a href="#" class="gp"><i class="social_googleplus"></i></a></li>
+                    <li><a href="#" class="ln"><i class="social_linkedin"></i></a></li>
+                    <li><a href="#" class="rs"><i class="social_rss"></i></a></li>
+                  </ul>
+                </div> <!-- end social icon div -->
+              </div> <!-- end login div -->
+            </div>
+          </div> <!-- end of login form portion -->
+        </div>
+      </div>
+    </div> <!-- end #main-wrapper -->
+
+
+<!-- <h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %> -->

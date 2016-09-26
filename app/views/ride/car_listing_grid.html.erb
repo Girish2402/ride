@@ -1,0 +1,156 @@
+
+    <div id="fakeloader">
+      <div class="spinner5">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+      <%= render :partial=>'header'%>
+
+      <div class="inner-page-banner" style="background: url('/assets/inner-banner/listing-banner.jpg') top center no-repeat; background-size: cover;">
+        <div class="rq-overlay"></div>
+        <div class="container">
+          <div class="rq-title-container bredcrumb-title text-center">
+            <h2 class="rq-title">Car Listing</h2>
+            <ol class="breadcrumb rq-subtitle secondary">
+              <li><a href="#">Home</a></li>
+              <li class="active">Car Listing</li>
+            </ol>
+          </div>
+        </div>
+      </div> <!-- /. inner pagebanner -->
+      <div class="rq-page-content">
+        <div class="rq-content-block gray-bg small-padding-top">
+          <div class="container">
+            <div class="listing-search-container">
+              <h2>Search For<span class="dot">.</span></h2>
+              <div class="rq-search-container with-border">
+                <div class="rq-search-single">
+                  <div class="rq-search-content">
+                    <span class="rq-search-heading">Location</span>
+                    <select name="categories" class="category-option">
+                      <option value="0">Pick a location</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="rq-search-single">
+                  <div class="rq-search-content">
+                    <span class="rq-search-heading">Pick up</span>
+                    <input type="text" name="datefilter" class="rq-form-element datepicker" id="startdate" placeholder="Pick up date"/>
+                    <i class="ion-chevron-down datepicker-arrow"></i>
+                  </div>
+                </div>
+                <div class="rq-search-single">
+                  <div class="rq-search-content">
+                    <span class="rq-search-heading">Return</span>
+                    <input type="text" name="datefilter" class="rq-form-element" id="enddate" placeholder="Return date"/>
+                    <i class="ion-chevron-down datepicker-arrow"></i>
+                  </div>
+                </div>
+                <div class="rq-search-single">
+                  <div class="rq-search-content last-child">
+                    <span class="rq-search-heading">Driver age</span>
+                    <select name="categories" class="category-option">
+                      <option value="0">25 Years old</option>
+                      <option value="1">25 Years old</option>
+                      <option value="2">25 Years old</option>
+                      <option value="3">25 Years old</option>
+                      <option value="4">25 Years old</option>
+                      <option value="5">25 Years old</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="rq-search-single search-btn">
+                  <div class="rq-search-content">
+                    <button class="rq-btn rq-btn-primary fluid-btn">Search <i class="arrow_right"></i></button>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- /.search-container -->
+            
+
+            <div class="rq-car-listing-wrapper">
+              <div class="rq-listing-choose rq-listing-grid">
+                <div class="row">
+                  <% @ride_details.each do |r| %>
+                    <div class="col-md-4 col-sm-6">
+                      <div class="listing-single">
+                        <div class="listing-img">
+                          <%= image_tag(r.cardetail.image.url)%>
+                        </div>
+                        <div class="listing-details">
+                          <h5 class="car-brand">BMW</h5>
+                          <h3 class="car-name"><%= link_to r.cardetail.title%></h3>
+                          <ul class="rating-list">
+                            <li><i class="ion-star"></i></li>
+                            <li><i class="ion-star"></i></li>
+                            <li><i class="ion-star"></i></li>
+                            <li><i class="ion-star"></i></li>
+                            <li><i class="ion-star"></i></li>
+                          </ul>
+                          <ul>
+                            <li>From <span><%=r.from_point%></span></li>
+                            <li>To <span><%=r.to_point%></span></li>
+                            <li>Departure Date: <span><%=r.d_date%></span></li>
+                            <li>Return Date: <span><%=r.r_date%></span></li>
+                          </ul>
+                          <div class="listing-footer">
+                            <span><%= link_to "Details",:action=>'listing_detail',:id=>r.id%></span>
+                            <span>
+                              Price <span class="price"><%=r.price%> </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                  
+                </div>
+              </div>
+              <div class="rq-pagination">
+                <nav>
+                  <ul class="rq-pagination-list">
+                    <li class="pagin-text">
+                      <a href="#" aria-label="Previous">
+                        <span aria-hidden="true"><i class="arrow_left"></i> Prev</span>
+                      </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a class="center-dot" href="#">...</a></li>
+                    <li><a href="#">12</a></li>
+                    <li class="pagin-text">
+                      <a href="#" aria-label="Next">
+                        <span aria-hidden="true">next <i class="arrow_right"></i></span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+          </div>
+        </div>  <!-- /.rq-content-block -->
+      </div>
+
+    </div> <!-- end #main-wrapper -->
+
+

@@ -1,0 +1,62 @@
+<div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">My Profile details</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="/ride/index">Home</a></li>
+                <li class="active">View</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion-->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <div class="row">
+                    <div id="rq-pricing-portion" class="element-single">
+                      <h3 class="elements-title">Pricing Tables</h3>
+                      <div class="rq-pricing-table-wrapper">
+
+                        <%@user.offerrides.each do |ride|%>
+                          <div class="rq-pricing-item">
+                            <h4><%=ride.cardetail.title%></h4>
+                            <div class="rq-price">
+                              <%= image_tag ride.cardetail.image.url %>
+                            </div>
+                            <div class="rq-pricing-details">
+                              <ul class="rq-pricing-offer-list">
+                                <li class="rq-pricing-offer"><i class="icon_check"></i>
+                                  <%=ride.from_point%> - To - <%=ride.to_point%>
+                                </li>
+                                <li class="rq-pricing-offer"><i class="icon_check"></i>
+                                  Departure Date: <%=ride.d_date%>  
+                                </li>
+                                <li class="rq-pricing-offer"><i class="icon_check"></i>
+                                  Return Date: <%=ride.r_date%>
+                                </li>
+                                <li class="rq-pricing-offer"><i class="icon_check"></i>
+                                  Price: <%=ride.price%>
+                                </li>
+                                <li class="rq-pricing-offer"><i class="icon_check"></i>
+                                  Available Seats : <%=ride.cardetail.seats %>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="rq-pricing-button">
+                              <button class="rq-btn btn-price fluid">Edit<i class="arrow_right"></i></button>
+                              <button class="rq-btn btn-price fluid">Delete<i class="arrow_right"></i></button>
+                            </div>
+                          </div>
+                        <%end%>
+
+                      </div>
+                    </div> 
+                </div>   
+              </div>          
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+</div> <!-- end #main-wrapper -->

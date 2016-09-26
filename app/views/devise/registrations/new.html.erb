@@ -1,0 +1,123 @@
+<div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">Register</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="#">Home</a></li>
+                <li class="active">Register</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion-->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <h4>Don't have an account! Register now </h4>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                <h5>Sign Up TODAY AND YOU ` LL BE ABLE TO FOLLOWING</h5>
+                <ul class="rq-feature-list">
+                  <li>Register and access all</li>
+                  <li>Change your profile anytime</li>
+                  <li>Keep a records of all your payment</li>
+                  <li>Create your own Add at protfolio</li>
+                  <li>Track your payment easily at your profile page</li>
+                  <li>Quick registration for facebook, twitter and with Google+</li>
+                </ul>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <%= devise_error_messages! %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= f.text_field :name, autofocus: true,class:'rq-form-control reverse', placeholder:'Name', required:''%>
+                    </div>      
+                    <div class="col-md-6">
+                      <%= f.email_field :email, autofocus: true,class:'rq-form-control reverse',placeholder:'Email Address',required:''%>
+                    </div>
+                    <div class="col-md-6">                      
+                      <%= f.password_field :password, autocomplete: "off",class:'rq-form-control reverse', placeholder:'Password', required:''%>
+                      <% if @minimum_password_length %>
+                      <em>(password <%= @minimum_password_length %> characters minimum)</em>
+                      <% end %>
+                    </div>
+                    <div class="col-md-6">
+                       <%= f.password_field :password_confirmation, autocomplete: "off",class:'rq-form-control reverse',placeholder:'Re - Password',required:''%>
+                    </div>
+                    <div class="col-md-6">                     
+                        <%= f.file_field (:avatar) %>
+                    </div>
+                   
+                    <div class="col-md-12">
+                      <div class="register-button">
+                        <button type="submit" class="rq-btn rq-btn-primary border-radius">Register <i class="arrow_right"></i></button>
+
+                      </div>
+                    </div>
+                    <div class="col-md-12 forgotpass">                      
+                      <%= render "devise/shared/links" %>
+                    </div>
+                  </div> <!-- end of registration section -->
+                <% end %>
+                <div class="social-login "> <!-- start social icon div -->
+                  <h5>or register with</h5>
+                  <ul class="social-page-nav">
+                    <li>
+                      <%= link_to(user_facebook_omniauth_authorize_path, class:'fb' ) do%>
+                        <i class="social_facebook"></i>
+                      <%end%>
+                    </li>
+                    <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                    <li><a href="#" class="gp"><i class="social_googleplus"></i></a></li>
+                    <li><a href="#" class="ln"><i class="social_linkedin"></i></a></li>
+                    <li><a href="#" class="rs"><i class="social_rss"></i></a></li>
+                  </ul>
+                </div> <!-- end social icon div -->
+
+              </div>
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+</div> <!-- end #main-wrapper -->
+  
+
+
+
+
+<!-- <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+ -->

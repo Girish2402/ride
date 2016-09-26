@@ -1,0 +1,40 @@
+
+<div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">My Conversation</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="/ride/index">Home</a></li>
+                <li class="active">all Conversation</li>
+              </ol>
+            </div>
+          </div>
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion-->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <div class="row">				 
+				  <div class="col-md-4 col-ms-offset-4">
+						
+									  
+						
+				  </div>
+				  <div class="col-md-4">
+				  	<table class="table">
+				  		<% @conversations.each do |c| %>
+				  			<tr>
+				  				<td><%= link_to c.subject,:action=>'show',:id=>c.id%></td>
+				  			</tr>
+				  		<%end%>
+				  	</table>
+				  </div>
+              </div>             
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+</div> <!-- end #main-wrapper -->
+
+

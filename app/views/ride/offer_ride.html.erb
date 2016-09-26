@@ -1,0 +1,96 @@
+
+    <div id="fakeloader">
+      <div class="spinner5">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+     <%= render :partial=>'header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">Offer Ride</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="#">Home</a></li>
+                <li class="active">Offer Ride</li>
+              </ol>
+            </div>
+          </div>
+         
+          <div class="rq-registration-content-single small-bottom-margin"> <!-- start of registration portion -->
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <h5>Post Your Ride & Find The Sharing Partner </h5>
+                <ul class="rq-feature-list">
+                  <li>For Security </li>
+                  <li>Meet the Person at safe location</li>
+                  <li>Keep a records of all your payment</li>
+                  <li>Create your own Add at protfolio</li>
+                  <li>Track your payment easily at your profile page</li>
+                  <li>Quick registration for facebook, twitter and with Google+</li>
+                </ul>
+                <%= form_for(:offerride, :url=>{:action=>'save_ride'},:multipart=>true,:method=>'post') do |f|%>
+                  <div class="row">
+                    <div class="col-md-3">                      
+                      <%= f.text_field :from_point, class:'rq-form-control reverse',placeholder: 'Starting Point'%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.text_field :to_point,class:'rq-form-control reverse',placeholder: 'End Point' %>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.text_field :Stop_over_point,class:'rq-form-control reverse',placeholder: 'Stop Over Point'%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.date_field :d_date,class:'rq-form-control reverse',placeholder: 'Departure Date'%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.date_field :r_date,class:'rq-form-control reverse',placeholder: 'Return Date'%>
+                    </div>
+                    
+    
+                    
+                    <div class="col-md-3">
+                      <%= f.number_field :price,class:'rq-form-control reverse',placeholder: ' Prise'%>
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <%= f.text_field :description,class:'rq-form-control reverse',placeholder: 'Descrption'%>
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <%= f.text_field :luggage_size,class:'rq-form-control reverse',placeholder: 'Luggage Size'%>
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <%= f.text_field :i_will_leave,class:'rq-form-control reverse',placeholder: 'I will Leave (ex:12pm)'%>
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <%= f.text_field :detour,class:'rq-form-control reverse',placeholder: 'Detour'%>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.text_field :ride_type,class:'rq-form-control reverse',placeholder: 'Ride Type'%>
+                    </div>
+                    
+
+                    <div class="col-md-12">
+                      <div class="register-button">
+                        <button type="submit" class="rq-btn rq-btn-primary border-radius">Register <i class="arrow_right"></i></button>
+                      </div>
+                    </div>
+                  </div> <!-- end of registration section -->
+               <%end%>
+              </div>
+            </div>
+          </div><!--  end of registration form portin -->
+        </div>
+      </div>
+    </div> <!-- end #main-wrapper -->
+  

@@ -1,0 +1,52 @@
+<div id="main-wrapper">
+     <%= render :partial=>'ride/header'%>
+      <div class="rq-page-content">
+        <div class="rq-content-block">
+          <div class="rq-title-container bredcrumb-title small">
+            <div class="container">
+              <h2 class="rq-title">My Conversation</h2>
+              <ol class="breadcrumb rq-subtitle">
+                <li><a href="/ride/index">Home</a></li>
+                <li class="active">Conversation</li>
+              </ol>
+            </div>
+          </div>
+          
+            <div class="container">
+              <div class="rq-login-form no-border">
+                <div class="row">	
+                	<div class="col-md-12 center">
+                		<h5>Subject: <%= @conversation.subject%></h5>
+                		                		
+                	</div>	
+		            <div class="col-md-6 col-md-offset-3 compose-msg">		            			 
+			                <div class="form-group">
+			                  <label class="col-sm-12 scroll" for="inputBody">
+			                  	<% @conversation.receipts_for(current_user).each do |c| %>
+									<p><%=c.message.sender.name%>:<%= c.message.body%></p>
+								<%end%>
+			                  </label>
+			                  <div class="col-sm-12">
+			                  	<%= form_tag conversation_messages_path(@conversation), method: :post  do%>
+			             		<%=hidden_field_tag 'c_id',@conversation.id%>			              
+			                  	<%= text_area_tag :body,nil, placeholder: "message",class: 'form-control',rows: '2'%>
+			                  </div>
+			                  <%=submit_tag "Send",class:'btn btn-primary'%>
+			                  <%end%>
+			                </div>
+			            
+		            </div>
+		            <div class="col-md-3">
+		            	
+		            </div>
+				</div>
+              </div>             
+            </div>
+          
+        </div>
+      </div>
+</div> <!-- end #main-wrapper -->
+
+
+
+
