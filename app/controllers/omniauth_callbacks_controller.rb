@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbackController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 	# def facebook
  #    # You need to implement the method below in your model (e.g. app/models/user.rb)
