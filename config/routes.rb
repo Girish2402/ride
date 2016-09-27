@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     root to: "ride#index"
-    devise_for :users , controllers: { registrations: "registrations",omniauth_callbacks: "omniauth_callbacks",}
+    devise_for :users , controllers: { registrations: "registrations",omniauth_callback: "omniauth_callback"}
                         # controllers: { omniauth_callback: "omniauth_callback" }
 
     devise_scope :user do
