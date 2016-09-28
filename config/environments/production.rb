@@ -83,10 +83,10 @@ Rails.application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'example.com',
-  user_name:            'mygb24id@gmail.com',
+  user_name:            'girishb@indiawebinfotech.com',
   password:             'thunderbirddd',
   authentication:       'plain',
   enable_starttls_auto: true  }
 
-  config.action_mailer.default_url_options ={host: "https://pure-oasis-99757.herokuapp.com"}
+  config.action_mailer.default_url_options ={host: "pure-oasis-99757.herokuapp.com"}
 end
