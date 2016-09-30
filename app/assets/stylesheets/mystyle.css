@@ -52,3 +52,7 @@ height: 200px;
 .btn-price.fluid {
     width: 160px !important;
 }
+
+.date-style input{
+    border: none;
+}

@@ -57,4 +57,8 @@ class RideController < ApplicationController
 		@offer_details = Offerride.find(params[:id])
 
 	end
+
+	def search_ride
+		@ride_details = Offerride.search(params[:to],params[:from],params[:date])
+	end
 end
