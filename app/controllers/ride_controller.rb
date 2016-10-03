@@ -61,4 +61,22 @@ class RideController < ApplicationController
 	def search_ride
 		@ride_details = Offerride.search(params[:to],params[:from],params[:date])
 	end
+
+	def book_ride
+		@booking_details = Offerride.find(params[:id])
+		@bill = Bill.new
+	end
+
+	def save_bill
+		test= Offerride.find(params[:id])
+		user= current_user
+		@bills = Bill.new(params.require(:bills).permit(:first_name,:last_name,:Address,:seats,:zip_code,:contry,:state,:email))
+		if @bills.save
+		   test.bills << @bills
+		   user.bills << @bills
+		   UserMailer.bill_generate(user).deliver_later
+		   flash[:notice]= 'Please check out the bill info in your inbox'
+		   redirect_to :action=>'index'
+		end
+	end
 end

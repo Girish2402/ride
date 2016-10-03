@@ -133,6 +133,7 @@
                       </div>
                     </div>
 
+
                     <div role="tabpanel" class="tab-pane" id="listing_tab_hor_4">
                       <div class="contact-img">
                         <%=image_tag @offer_details.user.avatar.url%>
@@ -141,133 +142,18 @@
                       Email : <%= @offer_details.user.email%><br>
                       <%= link_to "Chat With User",:controller=>'conversations',:action=>'new',:id=>@offer_details.user.id%>
                     </div>
+                    <div class="col-md-offset-5">
+                      <%= form_tag('/ride/book_ride') do%>      
+                        <%=hidden_field_tag 'id',@offer_details.id%>           
+                        <%= submit_tag 'BOOK NOW', class:'rq-btn rq-btn-primary btn-large border-radius'%>
+                      <%end%>
+                    </div>
                   </div>
                 </div>
               </div>  <!-- ./edn feature tab -->
             
             </div>
           </div> <!-- .end rq-content-block -->
-          <div class="rq-content-block gray-bg">
-            <div class="container">
-              <div class="listing-page-title">
-                <h3>Book Car Now</h3>
-              </div>
-              <div class="rq-car-booking-section">
-                <div class="car-search">
-                  <div class="rq-search-container">
-                    <div class="rq-search-single">
-                      <div class="rq-search-content">
-                        <span class="rq-search-heading">Location</span>
-                        <select name="categories" class="category-option">
-                          <option value="0">Pick a location</option>
-                          <option value="AL">Alabama</option>
-                          <option value="AK">Alaska</option>
-                          <option value="AZ">Arizona</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="CA">California</option>
-                          <option value="CO">Colorado</option>
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="DC">District of Columbia</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="HI">Hawaii</option>
-                          <option value="ID">Idaho</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IN">Indiana</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="rq-search-single">
-                      <div class="rq-search-content">
-                        <span class="rq-search-heading">Pick up</span>
-                        <input type="text" name="datefilter" class="rq-form-element datepicker" id="startdate" placeholder="Pick up date"/>
-                        <i class="ion-chevron-down datepicker-arrow"></i>
-                      </div>
-                    </div>
-                    <div class="rq-search-single">
-                      <div class="rq-search-content">
-                        <span class="rq-search-heading">Return</span>
-                        <input type="text" name="datefilter" class="rq-form-element" id="enddate" placeholder="Return date"/>
-                        <i class="ion-chevron-down datepicker-arrow"></i>
-                      </div>
-                    </div>
-                    <div class="rq-search-single">
-                      <div class="rq-search-content">
-                        <span class="rq-search-heading">Car Types</span>
-                        <select name="categories" class="category-option">
-                          <option value="0">Saden</option>
-                          <option value="1">SuV</option>
-                          <option value="2">BMW</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="rq-search-single">
-                      <div class="rq-search-content last-child">
-                        <span class="rq-search-heading">Additional Person</span>
-                        <select name="categories" class="category-option">
-                          <option value="0">Additional person cost</option>
-                          <option value="1">2 persone cost</option>
-                          <option value="2">Person cost</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="booking-details">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <div class="booking-section-single">
-                        <h3 class="section-title">Resources</h3>
-                        <div class="section-adding-option">
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-one">
-                            <label for="option-one">GPS <span>$14.00 - Per Day</span></label>
-                          </span>
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-two">
-                            <label for="option-two">Child Seat <span>$15.00 - One Time</span></label>
-                          </span>
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-three">
-                            <label for="option-three">Music <span>$20.00 - One Time</span></label>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-6">
-                      <div class="booking-section-single">
-                        <h3 class="section-title">Security Deposites</h3>
-                        <div class="section-adding-option">
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-four">
-                            <label for="option-four">Personal Accident Insurance <span>$10.00 - Per Day</span></label>
-                          </span>
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-five">
-                            <label for="option-five">CWD (reduce excess fee for 50%) <span> $80.00 - One Time</span></label>
-                          </span>
-                          <span class="rq-checkbox-secondary">
-                            <input type="checkbox" id="option-six">
-                            <label for="option-six"> Another Security Deposit <span>$30.00 - One Time</span></label>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <h3 class="total-price">Total Booking Cost : <span>$150.00</span></h3>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="book-btn">
-                        <button class="rq-btn rq-btn-primary btn-large">Book Now <i class="ion-android-car"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- /.rq-content-block -->
           <div class="rq-content-block">
             <div class="related-car-faq">
               <div class="container">

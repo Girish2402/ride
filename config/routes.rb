@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'manageride/edit'
 
+ 
+
   devise_for :adminusers
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

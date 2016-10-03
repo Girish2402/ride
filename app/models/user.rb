@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     mount_uploader :avatar, AvatarUploader
 
     has_many :offerrides
+    has_many :bills
 
     acts_as_messageable
 

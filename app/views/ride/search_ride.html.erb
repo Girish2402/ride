@@ -89,39 +89,45 @@
             <div class="rq-car-listing-wrapper">
               <div class="rq-listing-choose rq-listing-grid">
                 <div class="row">
-                  <% @ride_details.each do |r| %>
-                    <div class="col-md-4 col-sm-6">
-                      <div class="listing-single">
-                        <div class="listing-img">
-                          <%= image_tag(r.cardetail.image.url)%>
-                        </div>
-                        <div class="listing-details">
-                          <h5 class="car-brand">BMW</h5>
-                          <h3 class="car-name"><%= link_to r.cardetail.title%></h3>
-                          <ul class="rating-list">
-                            <li><i class="ion-star"></i></li>
-                            <li><i class="ion-star"></i></li>
-                            <li><i class="ion-star"></i></li>
-                            <li><i class="ion-star"></i></li>
-                            <li><i class="ion-star"></i></li>
-                          </ul>
-                          <ul>
-                            <li>From <span><%=r.from_point%></span></li>
-                            <li>To <span><%=r.to_point%></span></li>
-                            <li>Departure Date: <span><%=r.d_date%></span></li>
-                            <li>Return Date: <span><%=r.r_date%></span></li>
-                          </ul>
-                          <div class="listing-footer">
-                            <span><%= link_to "Details",:action=>'listing_detail',:id=>r.id%></span>
-                            <span>
-                              Price <span class="price"><%=r.price%> </span>
-                            </span>
+                  <% if @ride_details.empty? %>
+                       <div class="col-md-4 col-sm-6">
+                         <h5>No ride available</h5>
+                       </div>             
+                  <%else%>
+                    <% @ride_details.each do |r| %>
+                      <div class="col-md-4 col-sm-6">
+                        <div class="listing-single">
+                          <div class="listing-img">
+                            <%= image_tag(r.cardetail.image.url)%>
+                          </div>
+                          <div class="listing-details">
+                            <h5 class="car-brand">BMW</h5>
+                            <h3 class="car-name"><%= link_to r.cardetail.title%></h3>
+                            <ul class="rating-list">
+                              <li><i class="ion-star"></i></li>
+                              <li><i class="ion-star"></i></li>
+                              <li><i class="ion-star"></i></li>
+                              <li><i class="ion-star"></i></li>
+                              <li><i class="ion-star"></i></li>
+                            </ul>
+                            <ul>
+                              <li>From <span><%=r.from_point%></span></li>
+                              <li>To <span><%=r.to_point%></span></li>
+                              <li>Departure Date: <span><%=r.d_date%></span></li>
+                              <li>Return Date: <span><%=r.r_date%></span></li>
+                            </ul>
+                            <div class="listing-footer">
+                              <span><%= link_to "Details",:action=>'listing_detail',:id=>r.id%></span>
+                              <span>
+                                Price <span class="price"><%=r.price%> </span>
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  <% end %>
-                  
+                    <% end %>
+
+                  <%end%>
                 </div>
               </div>
               <div class="rq-pagination">
