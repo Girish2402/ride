@@ -41,6 +41,9 @@ gem 'rails_admin'
 # use for chatting app
 gem 'mailboxer'
 
+# Use for the pagination
+gem 'kaminari'
+
 # Use for Console
  # gem 'pry'
  # gem 'pry-rails'

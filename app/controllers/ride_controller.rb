@@ -50,7 +50,7 @@ class RideController < ApplicationController
 	end
 
 	def car_listing_grid
-		@ride_details = Offerride.all
+		@ride_details = Offerride.all.page(params[:page]).per(1)
 	end
 
 	def listing_detail

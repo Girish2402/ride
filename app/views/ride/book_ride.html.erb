@@ -26,12 +26,8 @@
                     </div>
 
                     <div class="col-md-3">
-                      <%=f.select :seats,{class:'rq-form-control reverse'} do%>
-                        <option value="0">seats</option>
-                        <%(1..@booking_details.cardetail.seats).each do |q|%>
-                          <option value="<%=q%>"><%= q%></option>
-                        <%end%>           
-                      <%end%>
+                      
+                      <%= f.select :seats, options_for_select(1..@booking_details.cardetail.seats), {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
                     </div>
 
                     <div class="col-md-3">
